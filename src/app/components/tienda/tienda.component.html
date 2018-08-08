@@ -1,0 +1,28 @@
+<p>
+  tienda works!
+</p>
+<hr>
+<br>
+<p>Del Hijo Al Padre</p>
+  <ul *ngIf="miParque">
+    <li>{{miParque.nombre}}</li>
+    <li>{{miParque.metros}}</li>
+    <li>{{miParque.vegetacion}}</li>
+    <li>{{miParque.abierto}}</li>
+  </ul>
+
+<hr>
+<p>Del Padre Al Hijo</p>
+<p>Nombre del parque</p>
+<input type="text" [(ngModel)] = "nombreParque" (keyup.enter)="mostrarNombre()"/>
+<p>Resultado: </p>
+<p>{{nombreParque}}</p>
+
+
+
+<p *ngIf="nombreParque">
+<parques [nombre]="nombreParque"
+          (pasameLosDatos)="verDatosParque($event)"
+
+    ></parques>
+</p>

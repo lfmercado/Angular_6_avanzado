@@ -1,0 +1,19 @@
+<div>
+  <h2>Bienvenidos al {{nombre}}</h2>
+  <h3>Que Cuenta con:</h3>
+  <ul>
+    <li>Con Una Area De {{metros}}*2</li>
+    <li>Y una vegetacion {{vegetacion}}</li>
+    <li>Actualmente se encuentra
+      <ul>
+        <li>
+        <span *ngIf="abierto == true"> Abierto</span>
+        <span *ngIf="abierto == false"> Cerrado</span>
+      </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<hr>
+<button (click)="emitirEvento()">Mostrar En El Padre</button>
