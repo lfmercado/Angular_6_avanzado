@@ -20,8 +20,12 @@
     "@angular/platform-browser": "^6.1.2",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "bootstrap": "3.3.6",
     "core-js": "^2.5.4",
+    "jquery": "1.12",
+    "jquery-dotdotdot": "1.8.2",
     "rxjs": "^6.0.0",
+    "tinymce": "^4.8.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

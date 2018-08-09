@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 
+declare var jQuery:any;
+declare var $:any;
+
 @Component({
   selector: 'tienda',
   templateUrl: './tienda.component.html',
@@ -17,6 +20,12 @@ export class TiendaComponent implements OnInit {
    }
 
   ngOnInit() {
+    $('textojq').hide();
+    $('#botonjq').click(function(){
+      $('#textojq').slideToggle();
+    });
+    //Esta es una libreria de Jquery que lo que permite es contener un texto con los ... para evitar que se salga de un div o un contenedor
+    $('#caja').dotdotdot({});
   }
   
   mostrarNombre(){
