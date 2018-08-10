@@ -12,5 +12,55 @@
 
 .navbar-nav .active{
     border-bottom: 3px solid orange  !important;
+}
+.navbar-default .navbar-nav>li>a:hover{
+    border-bottom: 3px solid orange  !important;    
+    transition: all 200ms;
+}
+.btn_transiciones{
+    padding: 10px;
+    background: red;
+    color:white;
+    border-radius: 20px;
+    border: 1px solid blue;
+    transition: all 0.5s;    
+    width: 100px;
+}
+.btn_transiciones:hover{
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+    border-radius: 10px;
+    background: #ccc;
+    border: 1px solid red;
+}
+.caja_animada{
+    background: green;
+    border: 5px solid black;
+    width: 200px;
+    height: 200px;
+    margin-top: 15px;
+    animation-name: deslizamiento;
+    animation-duration: 10s;
+    
+}
 
+
+@keyframes deslizamiento{
+    0% {}
+    50%{
+        margin-left: 400px;
+        background: red;
+    }
+    100%{
+        background: yellow;
+    }
+}
+
+@keyframes deslizamiento1{
+    from {}
+    to{
+        margin-left: 400px;
+        background: red;
+    }
 }

@@ -6,6 +6,7 @@ import {appRoutingProviders, routing } from './app.routing';
 
 //importar nuevo modulo
 import { ModuloEmailModule } from './moduloemail/moduloEmail.component';
+import { AdminModule } from './admin/admin.module';
 
 import { AppComponent } from './app.component';
 import { TiendaComponent } from './components/tienda/tienda.component';
@@ -14,33 +15,31 @@ import { HomeComponent } from './components/home/home.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { KeeperComponent } from './components/keeper/keeper.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { GuardarEmailComponent } from './moduloemail/components/guardar-email/guardar-email.component';
-import { MostrarEmailComponent } from './moduloemail/components/mostrar-email/mostrar-email.component';
-import { MainEmailComponent } from './moduloemail/components/main-email/main-email.component';
+
+
+
+
 
 @NgModule({
-  declarations: [
+  declarations: [//Aqui se cargan los pipes y los componentes
     AppComponent,
     TiendaComponent,
     ParquesComponent,
     HomeComponent,
     AnimalsComponent,
     KeeperComponent,
-    ContactComponent,
-    GuardarEmailComponent,
-    MostrarEmailComponent,
-    MainEmailComponent,
-    
+    ContactComponent,      
   ],
   imports: [//Aqui se cargan los modulos que se crean interna o extenamente
     BrowserModule,
     FormsModule, 
     routing,
-    ModuloEmailModule
+    ModuloEmailModule, 
+    AdminModule
   ],
-  providers: [
+  providers: [//Aqui se importar los servicios
     appRoutingProviders
-  ],
+  ],//Aqui se carga el componente principal
   bootstrap: [AppComponent]
 })
 export class AppModule { }

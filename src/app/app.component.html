@@ -38,14 +38,16 @@
             Contacto 
           </a> 
         </li>
+        <li>
+            <a [routerLink]="['/admin-panel']" [routerLinkActive]="['active']">
+              <span class="glyphicon glyphicon-knight"></span>  
+              Administrador 
+            </a> 
+          </li> 
       </ul>
      </div>   
   </nav>
 </div>
-     
-    <span *ngIf="emailContacto"><strong>Email De Contacto: </strong>{{emailContacto}}
-    <button (click)="eliminarEmailContacto()">Eliminar Email De Contacto</button>
-    </span>
 <div class="col-lg-11">
     <router-outlet></router-outlet>
 </div>

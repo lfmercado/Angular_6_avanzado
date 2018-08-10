@@ -13,12 +13,13 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
-  guadarEmail(){
+ /* guadarEmail(){
     localStorage.setItem('emailContacto', this.emailContacto);
     console.log(localStorage.getItem('emailContacto'));
     //console.log(this.emailContacto);
-  }
+  }*/
 
 }
