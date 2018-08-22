@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import {appRoutingProviders, routing } from './app.routing';
 
@@ -15,6 +16,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { KeeperComponent } from './components/keeper/keeper.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -28,7 +31,10 @@ import { ContactComponent } from './components/contact/contact.component';
     HomeComponent,
     AnimalsComponent,
     KeeperComponent,
-    ContactComponent,      
+    ContactComponent,
+    RegisterComponent,
+    LoginComponent, 
+    HttpModule     
   ],
   imports: [//Aqui se cargan los modulos que se crean interna o extenamente
     BrowserModule,

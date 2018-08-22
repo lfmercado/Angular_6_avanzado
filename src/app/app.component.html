@@ -4,51 +4,67 @@
     <div class="container-fluid">
 
       <div class="navbar-header">
-          <a  [routerLink]="['/home']" class="navbar-brand">{{titulo}}</a>
+        <a [routerLink]="['/home']" class="navbar-brand">{{titulo}}</a>
       </div>
 
       <ul class="nav navbar-nav">
         <li>
           <a [routerLink]="['/home']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-home"></span> 
-          Home 
+            <span class="glyphicon glyphicon-home"></span>
+            Home
           </a>
         </li>
         <li>
           <a [routerLink]="['/tienda']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-shopping-cart"></span>  
-            Tienda 
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            Tienda
           </a>
         </li>
         <li>
-          <a [routerLink]="['/animals']" [routerLinkActive]="['active']"> 
-            <span class="glyphicon glyphicon-star "></span> 
-            Animales 
+          <a [routerLink]="['/animals']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-star "></span>
+            Animales
           </a>
         </li>
         <li>
           <a [routerLink]="['/keeper']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-user"></span>  
-            Cuidadores 
+            <span class="glyphicon glyphicon-user"></span>
+            Cuidadores
           </a>
         </li>
         <li>
           <a [routerLink]="['/contact']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-comment"></span>  
-            Contacto 
-          </a> 
+            <span class="glyphicon glyphicon-comment"></span>
+            Contacto
+          </a>
         </li>
         <li>
-            <a [routerLink]="['/admin-panel']" [routerLinkActive]="['active']">
-              <span class="glyphicon glyphicon-knight"></span>  
-              Administrador 
-            </a> 
-          </li> 
+          <a [routerLink]="['/admin-panel']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-knight"></span>
+            Administrador
+          </a>
+        </li>
       </ul>
-     </div>   
+      
+      <ul class="nav navbar-nav navbar-right">
+
+          <li>
+            <a [routerLink]="['/register']" [routerLinkActive]="['active']">
+              <span class="glyphicon glyphicon-user"></span>
+              Registro
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/login']" [routerLinkActive]="['active']">
+              <span class="glyphicon glyphicon-log-in"></span>
+              Login
+            </a>
+          </li>
+
+        </ul>
+    </div>
   </nav>
 </div>
 <div class="col-lg-11">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
-
