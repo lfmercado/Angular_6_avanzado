@@ -18,6 +18,7 @@ import { KeeperComponent } from './components/keeper/keeper.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 
@@ -33,15 +34,17 @@ import { LoginComponent } from './components/login/login.component';
     KeeperComponent,
     ContactComponent,
     RegisterComponent,
-    LoginComponent, 
-    HttpModule     
+    LoginComponent,
+    UserEditComponent
+         
   ],
   imports: [//Aqui se cargan los modulos que se crean interna o extenamente
     BrowserModule,
     FormsModule, 
     routing,
     ModuloEmailModule, 
-    AdminModule
+    AdminModule,
+    HttpModule
   ],
   providers: [//Aqui se importar los servicios
     appRoutingProviders

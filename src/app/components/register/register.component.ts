@@ -13,8 +13,9 @@ import { UserService } from '../../services/user.service';
 export class RegisterComponent implements OnInit {
   public user: User;
   public title:String;
-  
-  constructor(
+  public message:String;
+  public alert:boolean;
+  constructor(  
               private _route: ActivatedRoute,
               private _router: Router,
               private _userService: UserService
@@ -25,8 +26,25 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit(){
-    console.log(this.user);
+  onSubmit(registerForm){
+    this._userService.register(this.user).subscribe(
+        response =>{
+          console.log(response);
+          if(response.message == 'Se ha guardado el usuario con exito!!'){
+          this.alert = true;
+          this.message = 'El registro se realizo conrrectamente, identificate con ' + this.user.email;
+          this.user = new User('','','','','','','ROLE_USER');
+          registerForm.reset();
+          }else{
+            this.alert= false;
+            this.message = response.message;
+        }
+        
+      },
+        error =>{
+          console.log(<any>error);
+        }
+    );
   }
 
 }

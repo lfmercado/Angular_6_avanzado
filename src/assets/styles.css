@@ -44,6 +44,9 @@
     animation-duration: 10s;
     
 }
+.connect{
+    cursor: pointer;
+}
 
 
 @keyframes deslizamiento{

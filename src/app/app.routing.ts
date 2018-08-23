@@ -10,6 +10,7 @@ import { KeeperComponent } from './components/keeper/keeper.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 const appRoutes : Routes = [
     {path: '', component: HomeComponent},
@@ -21,6 +22,7 @@ const appRoutes : Routes = [
     {path: 'tienda', component:TiendaComponent},
     {path: 'login', component:LoginComponent},
     {path: 'register', component:RegisterComponent},
+    {path: 'mis-datos', component:UserEditComponent},
     {path: '**', component:HomeComponent}
     
 ];

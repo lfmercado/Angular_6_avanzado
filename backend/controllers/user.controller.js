@@ -54,6 +54,7 @@ function saveUser(req, res){
                             });
                         }else{
                             res.status(200).send({
+                                user : user,
                                 message:'Se ha guardado el usuario con exito!!'
                             });
                         }
@@ -62,7 +63,7 @@ function saveUser(req, res){
                 });
             }else{
                 res.status(200).send({
-                    message: 'error el usuario no se puede registra porque ya existe!!!'
+                    message: 'Error, el usuario no se puede registrar, el correo ya ha sido utilizado!!!'
                 });
             }
         }
@@ -93,7 +94,7 @@ function login(req, res){
                             if(params.gettoken){
                                 //Deolver el token con jwt
                                 res.status(200).send({
-                                    token: jwt.createToken(user)
+                                    tokken: jwt.createToken(user)
                                 });
                             }else{
                             res.status(200).send({
@@ -156,7 +157,7 @@ function updateUser(req, res){
             //asegurar que si sea una imagen
             var image_split = file_path.split('\.');
             var image_ext = image_split[1];
-            if(image_ext == 'png' || image_ext == 'jpg' || image_ext == 'jpeg' || image_ext == 'git'){
+            if(image_ext == 'png' || image_ext == 'jpg' || image_ext == 'jpeg' || image_ext == 'git' || image_ext == 'PNG'){
                 if(userId != req.user.sub){
                     res.status(500).send({
                         message: 'No tienes permiso para modificar las credenciales'

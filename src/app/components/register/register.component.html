@@ -1,6 +1,12 @@
 <div class="col-lg-6">
   <h2>{{title}}</h2>
-  <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
+  <div class="alert alert-success" *ngIf="alert">
+    {{message}} en en siguiente  <a [routerLink]="['/login']">enlace</a>
+  </div>
+  <div class="alert alert-danger" *ngIf="alert==false">
+    {{message}}
+  </div>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-10">
     <p>
       <label>Nombre</label>
       <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required>

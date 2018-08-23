@@ -1,0 +1,33 @@
+<div class="col-lg-6">
+    <h2>{{title}}</h2>
+    
+    <div class="alert alert-success" *ngIf="status">
+      {{message}} 
+    </div>
+    <div class="alert alert-danger" *ngIf="status==false">
+      {{message}}
+    </div>
+    <form #userEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
+      <p>
+        <label>Nombre</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required>
+        <span *ngIf="!name.valid && name.touched">El Nombre Es Obligatorio</span>
+      </p>
+      <p>
+        <label>Apellido</label>
+        <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" required>
+        <span *ngIf="!surname.valid && surname.touched">El Apellido Es Obligatorio</span>
+      </p>
+      <p>
+        <label>Email</label>
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required>
+        <span *ngIf="!email.valid && email.touched">El Email Es Obligatorio</span>
+      </p>
+      <p>
+        <label>Sube Tu Avatar</label>
+        <input type="file" placeholder="Subir Imagen" (change)="fileChangeEvent($event)" accept="image/png, image/jpeg" >
+      </p>
+      <input type="submit" value="{{title}}" class="btn btn-primary" [disabled]="!userEditForm.form.valid"  >
+      <input type="submit" value="Cancelar" class="btn btn-danger" [routerLink]="['/']" style="margin-left:10px"  >
+    </form>
+  </div>
