@@ -5,11 +5,14 @@ import { ListComponent } from './components/list/list.component';
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 import { MainComponent } from './components/main/main.component';
+import { AdminGuard } from '../services/admin.guards';
+
 
 const adminRoutes: Routes = [
     {
         path: 'admin-panel',
         component: MainComponent,
+        canActivate: [AdminGuard],
         children:[
             {path:'', redirectTo:'list', pathMatch: 'full'},
             {path:'list', component:ListComponent},

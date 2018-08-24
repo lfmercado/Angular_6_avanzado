@@ -5,6 +5,7 @@ import { User } from '../../models/user.model';
 import { Global } from '../../services/global.service';
 import { UserService } from '../../services/user.service';
 import { UploadService } from '../../services/upload.service';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-user-edit',
@@ -56,28 +57,19 @@ export class UserEditComponent implements OnInit, DoCheck {
               localStorage.setItem('identity', JSON.stringify(this.user));
               this.message = 'Los datos se han actualizado con exito!!'
               this.status = true;
-              if(this.filesToUpload != null){
-              for (var name of this.filesToUpload){
-                var namesplit = name.name.split('.');
-                var ext = namesplit[1];
-                console.log(ext);
-                if(ext == 'png' || ext == 'jpg' || ext == 'jpeg' || ext == 'git' || ext == 'PNG' ){
+              this.filesToUpload 
+              this.fileChangeEvent(undefined);
+              if(this.filesToUpload != undefined){
                   this._uploadService.makeFileRequest(this.global+ 'upload-image-user/' + this.identity._id, [],this.filesToUpload,this.tokken,'image')
                                   .then((result:any)=>{
                                       this.user.image = result.image;
+                                      console.log(this.user.image);
                                       localStorage.setItem('identity', JSON.stringify(this.user));
                                   });
-                }else{
-                  alert('la imagen no se ha actualizado, debes introducir un archivo tipo imagen!');
-                  break;
-                }
+              }else{
+                alert('No has subido un archivo')
               }
-            }else{
-              alert('No has subido un archivo')
-            }
-             
-            }
-
+            } 
         },
         error =>{
           var errorMessage = <any>error;
@@ -90,7 +82,9 @@ export class UserEditComponent implements OnInit, DoCheck {
   }
   public filesToUpload: Array<File>
   fileChangeEvent(fileInput: any){
+    if(fileInput != undefined) 
     this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload);
   }
 
 }

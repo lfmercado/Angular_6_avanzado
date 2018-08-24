@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
+import { Global } from './services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,11 @@ export class AppComponent implements DoCheck, OnInit{
   public emailContacto:string;
   public identity;
   public tokken;
+  public global;
   constructor(
     private _userService: UserService
             ){
- 
+              this.global = Global.url;
   }
   //Este metodo 
   ngDoCheck(){

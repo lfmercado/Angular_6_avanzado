@@ -19,10 +19,12 @@ export class UploadService{
         return new Promise( function(resolve, reject) {
             var formData:any = new FormData();
             var xhr = new XMLHttpRequest();
-
+            if(files != undefined){
+                console.log(files);
             for (let index = 0; index < files.length; index++) {
                 formData.append(name, files[index], files[index].name);
             }
+        }
 
             xhr.onreadystatechange = function(){
                 if(xhr.readyState == 4){

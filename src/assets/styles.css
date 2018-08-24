@@ -47,8 +47,21 @@
 .connect{
     cursor: pointer;
 }
-
-
+.image_for_edit img{
+    width:75px; 
+    height: 90px;
+}
+.avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 700px;
+    overflow: hidden;
+    margin-top: 8px;
+    
+}
+.avatar img{
+    height: 45px;
+}
 @keyframes deslizamiento{
     0% {}
     50%{

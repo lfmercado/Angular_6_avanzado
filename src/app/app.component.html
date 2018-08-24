@@ -38,12 +38,6 @@
             Contacto
           </a>
         </li>
-        <li>
-          <a [routerLink]="['/admin-panel']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-knight"></span>
-            Administrador
-          </a>
-        </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right" *ngIf="!identity">
@@ -65,19 +59,29 @@
 
           
       <ul class="nav navbar-nav navbar-right" *ngIf="identity">
+        <li class="avatar">
+              <img src="{{global + 'get-image-file/' + identity.image}}">      
+        </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
               {{identity.name}}<span class="caret"></span>
             </a>
                 <ul class="dropdown-menu">
+                   <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                        <a [routerLink]="['/admin-panel']">
+                          <span class="glyphicon glyphicon-tasks"></span>
+                          Administrador
+                        </a>
+                      </li>
                     <li>
                         <a [routerLink]="['/mis-datos']" class="connect">
                           <span class="glyphicon glyphicon-cog"></span>
                           Mis Datos
                         </a>
                     </li>
+                   
                     <li>
-                        <a (click)="cerrarSesion()" class="connect">
+                        <a (click)="cerrarSesion()" class="connect" [routerLink]="['/']">
                           <span class="glyphicon glyphicon-log-in"></span>
                           Salir
                         </a>

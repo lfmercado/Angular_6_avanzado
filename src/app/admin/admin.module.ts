@@ -9,6 +9,8 @@ import { ListComponent } from './components/list/list.component';
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 
+import { AdminGuard } from '../services/admin.guards';
+import { UserService } from '../services/user.service';
 
 
 
@@ -27,7 +29,10 @@ import { EditComponent } from './components/edit/edit.component';
     ],
     
     exports:[],
-    providers:[]
+    providers:[
+        AdminGuard,
+        UserService
+    ]
 })
 
 export class AdminModule {}
