@@ -122,6 +122,7 @@ function updateUser(req, res){
     
     var userId = req.params.id;
     var update = req.body;
+    delete update.password;
     if(userId != req.user.sub){
         res.status(500).send({
             message: 'No tienes permiso para modificar las credenciales'
