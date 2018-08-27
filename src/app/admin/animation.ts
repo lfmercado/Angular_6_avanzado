@@ -5,7 +5,7 @@ export  const fadeLateral =
             transition(':enter',[
                 style({
                     opacity:0,
-                    transform: 'translateX(-100%)'
+                    transform: 'translateX(-30%)'
                 }),
                 animate('300ms ease-in',
                 style({
