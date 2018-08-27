@@ -93,7 +93,6 @@ function getAnimal(req, res){
 function updateAnimal(req, res){
     var animalId = req.params.id;
     var update = req.body;
-
     Animal.findByIdAndUpdate(animalId, update, {new : true}, (err, animalUpdate)=>{
         if(err){
             res.status(500).send({
@@ -143,7 +142,7 @@ function uploadImage(req, res){
                     }else{
                         if(!animalUpdate){
                             res.status(404).send({
-                                message: 'No se ha podido actualizar al Animal Linea 146'
+                                message: 'No se ha podido actualizar al Animal Linea 143',
                             });
                         }else{
                             res.status(200).send({animalUpdate, image: file_name});

@@ -48,17 +48,19 @@ export class AddComponent implements OnInit {
         if(!response.animal){
           this.status = false;
           this.message = 'No se ha podido crear el animal!!'
+          
         }else{
           this.status = true;
+          this.animal = response.animal;
           this.message = 'El animal se ha creado con exito!!'
-
+          console.log(this.animal);
           //Subir imagen del animal
           if(this.filesToUpload != undefined){
-            this._uploadService.makeFileRequest(this.url+ 'upload-image-animal/' + this.identity._id, [],this.filesToUpload,this.tokken,'image')
+            this._uploadService.makeFileRequest(this.url+ 'upload-image-animal/' + this.animal._id, [],this.filesToUpload,this.tokken,'image')
                             .then((result:any)=>{
                                 this.animal.image = result.image;
                                 console.log(this.animal);
-                                this._router.navigate(['/admin-panel/list']);
+                                //this._router.navigate(['/admin-panel/list']);
                               });
           }else{
             alert('No has subido un archivo')
