@@ -143,7 +143,7 @@ function uploadImage(req, res){
                     }else{
                         if(!animalUpdate){
                             res.status(404).send({
-                                message: 'No se ha podido actualizar al Animal'
+                                message: 'No se ha podido actualizar al Animal Linea 146'
                             });
                         }else{
                             res.status(200).send({animalUpdate, image: file_name});
