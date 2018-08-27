@@ -19,6 +19,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AnimalDetailComponent } from './components/animal-detail/animal-detail.component';
 
 
 
@@ -35,7 +36,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     ContactComponent,
     RegisterComponent,
     LoginComponent,
-    UserEditComponent
+    UserEditComponent,
+    AnimalDetailComponent
          
   ],
   imports: [//Aqui se cargan los modulos que se crean interna o extenamente

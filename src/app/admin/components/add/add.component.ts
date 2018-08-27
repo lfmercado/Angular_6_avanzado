@@ -8,11 +8,14 @@ import { AnimalService } from '../../../services/animal.service';
 import { UploadService } from '../../../services/upload.service';
 import { UserService } from '../../../services/user.service';
 
+import { fadeLateral } from '../../animation';  
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css'],
-  providers: [UserService, AnimalService, UploadService]
+  providers: [UserService, AnimalService, UploadService],
+  animations: [fadeLateral]
 })
 export class AddComponent implements OnInit {
   public title:string;

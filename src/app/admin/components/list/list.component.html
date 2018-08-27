@@ -1,5 +1,15 @@
-<div class="col-lg-12">
+<div class="col-lg-12" [@fadeLateral]>
   <h2>{{title}}</h2>
+    <div class="row">
+      <div class="col-lg-1"> Buscar:</div>
+      <div class="col-lg-3">
+          <input type="text" [(ngModel)]="busqueda" id="">
+      </div>
+      <div class="label label-success" *ngIf="busqueda">
+          Termino de la busqueda <strong>{{busqueda}}</strong>
+      </div>
+    </div>
+    <br>
   <table class="table table-hover">
     <thead class="thead-default">
       <tr>
@@ -9,22 +19,41 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let n of number; let i = index">
-        <td>Oso Panda {{i + 1}}</td>
-        <td>2012</td>
+      <tr *ngFor="let animal of animals | search: busqueda">
+        <td>{{animal.name}}</td>
+        <td>{{animal.year}}</td>
         <td>
-          <button class="btn btn-sm btn-success">
+          <button [routerLink]="['/animal', animal._id]" class="btn btn-sm btn-success">
             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
             Ver
           </button>
-          <button class="btn btn-sm btn-primary">
+          <button [routerLink]="['/admin-panel/edit/', animal._id]" class="btn btn-sm btn-primary">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             Editar
           </button>
-          <button class="btn btn-sm btn-danger">
+          <button href="#myModal" role="button" data-toggle="modal" class="btn btn-sm btn-danger">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             Eliminar
           </button>
+          <!-- Modal HTML -->
+          <div id="myModal" class="modal fade">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title">Confirmacion</h4>
+                      </div>
+                      <div class="modal-body">
+                          <p>¿¿¡Estas seguro de eliminar el animal!??</p>
+                          <p class="text-warning"><small>¡¡Una vez que lo borres, sera permanente!!.</small></p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                          <button type="button" class="btn btn-primary" (click)="deleteAnimal(animal._id)" >Eliminar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </td>
       </tr>
     </tbody>

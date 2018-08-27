@@ -16,7 +16,7 @@ const adminRoutes: Routes = [
         children:[
             {path:'', redirectTo:'list', pathMatch: 'full'},
             {path:'list', component:ListComponent},
-            {path:'edit', component:EditComponent},
+            {path:'edit/:id', component:EditComponent},
             {path:'add', component:AddComponent}
         ]
     }

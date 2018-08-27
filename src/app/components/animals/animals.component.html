@@ -1,5 +1,17 @@
-<h2>{{title}}</h2>
-<p>
-  animals works!
-</p>
-
+<div class="col-lg-12">
+  <h1>{{title}}</h1>
+   <div class="row">
+      <div class="col-sm-6 col-md-4"  *ngFor="let animal of animals">
+        <div class="thumbnail">
+          <img src="{{url + 'get-image-animal/' + animal.image}}" alt="{{animal.name}}" *ngIf="animal.image" style="height: 250px; width: 450px">
+          <div class="caption">
+            <h3><a [routerLink]="['/animal', animal._id]">{{animal.name}}</a></h3>
+            <p>{{animal.description}}</p>
+            <p>
+              <a  [routerLink]="['/animal', animal._id]" class="btn btn-primary" role="button">Ver Detalles</a> 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

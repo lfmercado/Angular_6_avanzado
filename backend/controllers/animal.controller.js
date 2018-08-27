@@ -93,6 +93,7 @@ function getAnimal(req, res){
 function updateAnimal(req, res){
     var animalId = req.params.id;
     var update = req.body;
+    
     Animal.findByIdAndUpdate(animalId, update, {new : true}, (err, animalUpdate)=>{
         if(err){
             res.status(500).send({
